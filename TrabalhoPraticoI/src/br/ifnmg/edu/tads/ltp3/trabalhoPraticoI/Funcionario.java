@@ -39,6 +39,9 @@ public class Funcionario {
         Matcher comparar= patternNome.matcher(nome);
         if(comparar.matches()){
          this.nome = nome;   
+        }else{
+            
+           System.out.print("String muito curta! minimo de 3 caracteres");
         }
         
     }
@@ -61,13 +64,13 @@ public class Funcionario {
         Matcher comparar= patternCpf.matcher(cpf);
         if(comparar.matches()){
             this.cpf=cpf;
+        } else{
+            System.out.print("Informe um cpf valido!");
         }
                
     }
 
-    
-
-    
+   
 
     public void setSenha(String senha) {
         //A senha sera composta de letras e numeros e não aceita caracteres especiais
