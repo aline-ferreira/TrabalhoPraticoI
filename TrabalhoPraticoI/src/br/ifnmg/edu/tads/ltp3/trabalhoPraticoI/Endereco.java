@@ -31,8 +31,12 @@ public class Endereco {
     }
 
     public void setBairro(String bairro) {
-        
-        this.bairro = bairro;
+        Pattern padraoBairro = Pattern.compile("[a-zA-Z]{3,250}");
+        Matcher comparar= padraoBairro.matcher(bairro);
+       
+       if(comparar.matches()){
+           this.bairro = bairro;
+       }
     }
 
     public String getCidade() {
@@ -40,8 +44,11 @@ public class Endereco {
     }
 
     public void setCidade(String cidade) {
-        
-        this.cidade = cidade;
+        Pattern padraoCidade = Pattern.compile("[a-zA-Z]{3,250}");
+        Matcher comparar= padraoCidade.matcher(cidade);
+        if(comparar.matches()){
+            this.cidade = cidade;
+        }
     }
 
     public int getNumero() {
