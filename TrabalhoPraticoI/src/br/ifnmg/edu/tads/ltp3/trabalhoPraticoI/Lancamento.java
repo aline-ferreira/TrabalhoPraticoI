@@ -5,6 +5,7 @@
 package br.ifnmg.edu.tads.ltp3.trabalhoPraticoI;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -112,9 +113,67 @@ public class Lancamento {
         return formaPagamento;
     }
 
-    public void setFomaPagamento(String fomaPagamento) {
+    public void setFomaPagamento(String formaPagamento) {
         
-        this.formaPagamento = fomaPagamento;
+        this.formaPagamento = formaPagamento;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + this.codigo;
+        hash = 89 * hash + Objects.hashCode(this.tipo);
+        hash = 89 * hash + Objects.hashCode(this.dataCadastro);
+        hash = 89 * hash + Objects.hashCode(this.dataLiquidacao);
+        hash = 89 * hash + Objects.hashCode(this.dataBaixa);
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.valorAbsoluto) ^ (Double.doubleToLongBits(this.valorAbsoluto) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.multa) ^ (Double.doubleToLongBits(this.multa) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.desconto) ^ (Double.doubleToLongBits(this.desconto) >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.historico);
+        hash = 89 * hash + Objects.hashCode(this.formaPagamento);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Lancamento other = (Lancamento) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataCadastro, other.dataCadastro)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataLiquidacao, other.dataLiquidacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataBaixa, other.dataBaixa)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.valorAbsoluto) != Double.doubleToLongBits(other.valorAbsoluto)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.multa) != Double.doubleToLongBits(other.multa)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.desconto) != Double.doubleToLongBits(other.desconto)) {
+            return false;
+        }
+        if (!Objects.equals(this.historico, other.historico)) {
+            return false;
+        }
+        if (!Objects.equals(this.formaPagamento, other.formaPagamento)) {
+            return false;
+        }
+        return true;
     }
     
     
