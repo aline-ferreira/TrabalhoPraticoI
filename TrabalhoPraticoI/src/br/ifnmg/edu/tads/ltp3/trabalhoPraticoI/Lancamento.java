@@ -6,6 +6,8 @@ package br.ifnmg.edu.tads.ltp3.trabalhoPraticoI;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -106,6 +108,8 @@ public class Lancamento {
     }
 
     public void setHistorico(String historico) {
+        Pattern padraoHistorico = Pattern.compile("{3,}");
+        Matcher comparar= padraoHistorico.matcher(historico);
         this.historico = historico;
     }
 
@@ -174,6 +178,11 @@ public class Lancamento {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Lancamento{" + "codigo=" + codigo + ", tipo=" + tipo + ", dataCadastro=" + dataCadastro + ", dataLiquidacao=" + dataLiquidacao + ", dataBaixa=" + dataBaixa + ", valorAbsoluto=" + valorAbsoluto + ", multa=" + multa + ", desconto=" + desconto + ", historico=" + historico + ", formaPagamento=" + formaPagamento + '}';
     }
     
     
