@@ -18,7 +18,7 @@ public class Funcionario {
     private String nome;
     private String cpf;
     private Endereco endereco;
-    
+    private String senha;
     
      public int getCodigo() {
         return codigo;
@@ -65,10 +65,19 @@ public class Funcionario {
                
     }
 
-   
-   
+    
 
     
+
+    public void setSenha(String senha) {
+        //A senha sera composta de letras e numeros e não aceita caracteres especiais
+        Pattern padraoSenha= Pattern.compile("[a-zA-Z][\\S\\w]{6,250}");
+        Matcher comparar= padraoSenha.matcher(senha);
+        
+           if(comparar.matches()){
+               this.senha = senha;
+           }
+    }
 
     @Override
     public int hashCode() {
@@ -77,7 +86,7 @@ public class Funcionario {
         hash = 47 * hash + Objects.hashCode(this.nome);
         hash = 47 * hash + Objects.hashCode(this.cpf);
         hash = 47 * hash + Objects.hashCode(this.endereco);
-       
+        hash = 47 * hash + Objects.hashCode(this.senha);
         return hash;
     }
 
@@ -104,15 +113,14 @@ public class Funcionario {
         if (!Objects.equals(this.endereco, other.endereco)) {
             return false;
         }
-        
+   
+        if (!Objects.equals(this.senha, other.senha)) {
+            return false;
+        }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Funcionario{" + "codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + '}';
-    }
-
+    
+    
     
     
     
