@@ -17,11 +17,18 @@ public class Sessao {
     private double saldoFinal;
     private Funcionario operador;
     private Caixa  caixa;
+
    
 
     public Sessao() {
        this.operador= null;
+       
+       
     }
+    
+    
+    
+    
 
     public int getCodigo() {
         return codigo;
@@ -89,6 +96,12 @@ public class Sessao {
             return false;
         }
         return true;
+    }
+    //toString
+
+    @Override
+    public String toString() {
+        return "Sessao{" + "codigo=" + codigo + ", saldoInicial=" + saldoInicial + ", saldoFinal=" + saldoFinal + ", operador=" + operador + ", caixa=" + caixa + '}';
     }
     
     
