@@ -4,6 +4,7 @@
  */
 package br.ifnmg.edu.tads.ltp3.trabalhoPraticoI;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
  */
 public class Lancamento {
     private int codigo;
-    private String tipo;
+    private String tipo;// 1-Credito 2-Debito
     private Date dataCadastro;
     private Date dataLiquidacao;
     private Date dataBaixa;
@@ -23,16 +24,37 @@ public class Lancamento {
     private double multa;
     private double desconto;
     private String historico;
-    private String formaPagamento;
+    private String formaPagamento;//cartao,dinheiro, cheque, boleto
+    private ArrayList<Sessao> sessoes;
 
     public Lancamento() {
-        if(codigo>0){
-           this.valorAbsoluto = 0;
+        this.valorAbsoluto = 0;
+        this.sessoes = new ArrayList<Sessao>();
+   
+  
+    }
+  
+    
+    public void addSessoes (Sessao sessao){
+        
+        if(!this.sessoes.contains(sessao)){
+            this.sessoes.add(sessao);
         }
     }
+    
+     public void removeSessao (Sessao sessao){
+        if (this.sessoes.contains(sessao)){
+            this.sessoes.remove(sessao);
+        }
+    }
+    
+     
+  
 
     public int getCodigo() {
+      
         return codigo;
+     
     }
 
     public void setCodigo(int codigo) {
@@ -45,8 +67,14 @@ public class Lancamento {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(int tipo) {
+       
+        if (tipo==1){
+          this.tipo = "credito";
+        } 
+        if (tipo==2){
+          this.tipo = "debito";
+        }
     }
 
     public Date getDataCadastro() {
@@ -110,7 +138,9 @@ public class Lancamento {
     public void setHistorico(String historico) {
         Pattern padraoHistorico = Pattern.compile("{3,}");
         Matcher comparar= padraoHistorico.matcher(historico);
-        this.historico = historico;
+        if(comparar.matches()){
+           this.historico = historico;
+        }
     }
 
     public String getFomaPagamento() {
@@ -118,6 +148,7 @@ public class Lancamento {
     }
 
     public void setFomaPagamento(String formaPagamento) {
+        
         
         this.formaPagamento = formaPagamento;
     }
