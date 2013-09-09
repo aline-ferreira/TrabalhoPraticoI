@@ -20,7 +20,7 @@ public class Funcionario {
     private Endereco endereco;
     private String senha;
 
-    public Funcionario(Endereco endereco) {
+    public Funcionario() {
         this.endereco = null;
     }
     
