@@ -32,7 +32,9 @@ public class Caixa {
     }
 
     public void setNumero(int numero) {
-        this.numero = numero;
+        if (numero>0){
+          this.numero = numero;
+        }
     }
 
     public double getSaldo() {
