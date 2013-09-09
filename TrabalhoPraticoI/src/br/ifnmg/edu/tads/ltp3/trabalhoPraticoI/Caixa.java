@@ -13,10 +13,14 @@ public class Caixa {
     private int numero;
     private double saldo;
 
+    public Caixa() {
+        this.saldo =0;
+    }
+ 
     public int getCodigo() {
         return codigo;
     }
-
+   
     public void setCodigo(int codigo) {
         if (codigo>0){
           this.codigo = codigo;
@@ -68,7 +72,8 @@ public class Caixa {
         }
         return true;
     }
-
+    
+    //toString
     @Override
     public String toString() {
         return "Caixa{" + "codigo=" + codigo + ", numero=" + numero + ", saldo=" + saldo + '}';
