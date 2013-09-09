@@ -19,6 +19,11 @@ public class Funcionario {
     private String cpf;
     private Endereco endereco;
     private String senha;
+
+    public Funcionario(Endereco endereco) {
+        this.endereco = null;
+    }
+    
     
      public int getCodigo() {
         return codigo;
@@ -121,6 +126,11 @@ public class Funcionario {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + '}';
     }
     
     
