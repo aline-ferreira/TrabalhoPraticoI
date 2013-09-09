@@ -6,7 +6,7 @@ package trabalhopraticoi;
 
 /**
  *
- * @author Aline
+ * @author Aline Ferreira
  */
 public class TrabalhoPraticoI {
 
