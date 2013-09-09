@@ -27,8 +27,6 @@ public class Sessao {
     }
     
     
-    
-    
 
     public int getCodigo() {
         return codigo;

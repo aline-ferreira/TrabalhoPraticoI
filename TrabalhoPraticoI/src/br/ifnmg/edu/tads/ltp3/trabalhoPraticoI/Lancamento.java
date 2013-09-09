@@ -210,7 +210,7 @@ public class Lancamento {
         }
         return true;
     }
-
+   //to String
     @Override
     public String toString() {
         return "Lancamento{" + "codigo=" + codigo + ", tipo=" + tipo + ", dataCadastro=" + dataCadastro + ", dataLiquidacao=" + dataLiquidacao + ", dataBaixa=" + dataBaixa + ", valorAbsoluto=" + valorAbsoluto + ", multa=" + multa + ", desconto=" + desconto + ", historico=" + historico + ", formaPagamento=" + formaPagamento + '}';
